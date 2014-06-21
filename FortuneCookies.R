@@ -5,9 +5,9 @@ fCookie <- function()
 
 fortuneCookie <- read.csv("FortuneCookie.csv",header = FALSE) #loads the file where the messages are stored
 
-cookieString <- paste0(as.character(fortuneCookie[1][[1]]),as.character(fortuneCookie[2][[1]])) #pastes the columns that store the strings to get the full sentence 
+cookieString <- paste0(as.character(fortuneCookie[1][[1]]),as.character(fortuneCookie[2][[1]]),as.character(fortuneCookie[3][[1]])) #pastes the columns that store the strings to get the full sentence 
 
-
+cookieString <- gsub(pattern ="D. Parton", replacement = "", x = cookieString)
 emptyPos <- which(nchar(cookieString) == 0) #Finds where there are empty strings
 
 cookieString <- cookieString[-emptyPos] #removes the empty entries
